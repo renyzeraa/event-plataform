@@ -1,4 +1,3 @@
 # Event Plataform
 
-CMS = Content Management System
-Headless = Painel de Admin
+Esta aplicação front-end irá consumir uma API do CMS usando Headless CMS (Painel de Admin)
