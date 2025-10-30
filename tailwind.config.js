@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: 'Roboto, sans-serif'
+      },
       colors: {
         green: {
           300: '#00B37E',
