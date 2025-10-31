@@ -12,10 +12,13 @@
   "dependencies": {
     "@apollo/client": "^4.0.8",
     "@phosphor-icons/react": "^2.1.10",
+    "@vime/core": "^5.4.1",
+    "@vime/react": "^5.4.1",
     "date-fns": "^4.1.0",
     "graphql": "^16.11.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.5",
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
