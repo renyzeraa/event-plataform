@@ -1,24 +1,8 @@
 import { CaretRightIcon, DiscordLogoIcon, FileArrowDownIcon, LightningIcon } from "@phosphor-icons/react";
 import { DefaultUi, Player, Youtube } from "@vime/react";
 import '@vime/core/themes/default.css'
-import { gql } from "@apollo/client";
-import { useQuery } from "@apollo/client/react";
 import { LoadingVideo } from "./loading-video";
-
-const GET_LESSON_BY_SLUG_QUERY = gql`
-    query GetLessonBySlug($slug: String) {
-        lesson(where: { slug: $slug }) {
-            title
-            videoId
-            description
-            teacher {
-                name
-                bio
-                avatarURL
-            }
-        }
-    }
-`
+import { useGetLessonBySlugQuery } from "../graphql/generated";
 
 interface VideoProps {
     lessonSlug: string
@@ -38,9 +22,9 @@ export interface GetLessonBySlugResponse {
 }
 
 export function Video({ lessonSlug }: VideoProps) {
-    const { data } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_QUERY, { variables: { slug: lessonSlug } })
+    const { data, loading } = useGetLessonBySlugQuery({ variables: { slug: lessonSlug } })
 
-    if (!data) {
+    if (!data || !data.lesson || loading) {
         return (
             <LoadingVideo />
         )
@@ -64,14 +48,15 @@ export function Video({ lessonSlug }: VideoProps) {
                     <div className="flex-1 flex flex-col">
                         <h1 className="text-2xl font-bold">{title}</h1>
                         <p className="text-gray-200 mt-4 block leading-relaxed">{description}</p>
-
-                        <div className="flex items-center gap-4 mt-6">
-                            <img className="h-16 w-16 rounded-full border-2 border-solid border-blue-500" src={teacher.avatarURL} alt="Foto perfil" />
-                            <div className="leading-relaxed">
-                                <strong className="font-bold text-2xl block">{teacher.name}</strong>
-                                <span className="text-gray-300 text-sm">{teacher.bio}</span>
+                        {teacher &&
+                            <div className="flex items-center gap-4 mt-6">
+                                <img className="h-16 w-16 rounded-full border-2 border-solid border-blue-500" src={teacher.avatarURL} alt="Foto perfil" />
+                                <div className="leading-relaxed">
+                                    <strong className="font-bold text-2xl block">{teacher.name}</strong>
+                                    <span className="text-gray-300 text-sm">{teacher.bio}</span>
+                                </div>
                             </div>
-                        </div>
+                        }
                     </div>
                     <div className="flex flex-col gap-4">
                         <a className="text-white hover:bg-green-700 transition-colors justify-center rounded px-4 py-3 flex items-center gap-2 border border-solid border-transparent bg-green-500" href="https://discord.com" target="_blank">

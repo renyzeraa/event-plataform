@@ -11,9 +11,10 @@ interface LessonProps {
 }
 
 export function Lesson({ availableAt, slug, title, type }: LessonProps) {
+    const { slug: paramSlug } = useParams<{ slug: string }>()
+
     const available = isPast(availableAt)
     const dateFormatted = format(availableAt, "EEEE' • 'd' de 'MMMM' • 'k'h'mm", { locale: ptBR })
-    const { slug: paramSlug } = useParams<{ slug: string }>()
     const active = slug === paramSlug
 
     return (
