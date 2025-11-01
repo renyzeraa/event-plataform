@@ -1,8 +1,11 @@
 
 import type { CodegenConfig } from '@graphql-codegen/cli';
+import * as dotenv from 'dotenv';
+
+dotenv.config(); // lê o .env padrão
 
 const config: CodegenConfig = {
-  schema: "https://us-west-2.cdn.hygraph.com/content/cmh9sjo2r01c707uytv00thgu/master",
+  schema: process.env.GRAPHQL_API_URL,
   documents: ['src/graphql/**/*.graphql'],
   generates: {
     'src/graphql/generated.ts': {
