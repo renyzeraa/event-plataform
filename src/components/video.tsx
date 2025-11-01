@@ -1,5 +1,6 @@
 import { CaretRightIcon, DiscordLogoIcon, FileArrowDownIcon, LightningIcon } from "@phosphor-icons/react";
 import { DefaultUi, Player, Youtube } from "@vime/react";
+//@ts-expect-error not error
 import '@vime/core/themes/default.css'
 import { LoadingVideo } from "./loading-video";
 import { useGetLessonBySlugQuery } from "../graphql/generated";
