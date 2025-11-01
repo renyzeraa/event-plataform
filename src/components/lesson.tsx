@@ -35,11 +35,11 @@ export function Lesson({ availableAt, slug, title, type }: LessonProps) {
                             </span>
                         )
                     }
-                    <span className={`text-xs py-0.5 px-2 text-white font-bold border border-solid rounded border-green-500 ${active ? 'border-white' : ''}`}>
+                    <span className={`text-xs py-0.5 px-2 text-white font-bold border border-solid rounded ${active ? 'border-white' : 'border-green-500'}`}>
                         {type === 'live' ? 'AO VIVO' : 'AULA PRÁTICA'}
                     </span>
                 </header>
-                <strong className={`text-gray-200 mt-5 block ${active ? 'text-white' : ''}`}>{title}</strong>
+                <strong className={`mt-5 block ${active ? 'text-white' : 'text-gray-200'}`}>{title}</strong>
             </div>
         </Link>
     )
