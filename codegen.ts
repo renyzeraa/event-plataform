@@ -17,6 +17,9 @@ const config: CodegenConfig = {
     },
   },
   ignoreNoDocuments: false,
+  config: {
+    skipTypename: false,
+  }
 };
 
 export default config;
