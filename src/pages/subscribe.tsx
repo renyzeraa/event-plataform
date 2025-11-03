@@ -20,7 +20,7 @@ export function Subscribe() {
         })
         setEmail('')
         setName('')
-        navigate('/event/lesson/')
+        navigate('/event')
     }
 
     return (

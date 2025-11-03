@@ -1,9 +1,7 @@
 import { CaretRightIcon, DiscordLogoIcon, FileArrowDownIcon, LightningIcon } from "@phosphor-icons/react";
-import { DefaultUi, Player, Youtube } from "@vime/react";
-//@ts-expect-error not error
-import '@vime/core/themes/default.css'
 import { LoadingVideo } from "./loading-video";
 import { useGetLessonBySlugQuery } from "../graphql/generated";
+import ReactPlayer from 'react-player'
 
 interface VideoProps {
     lessonSlug: string
@@ -37,10 +35,7 @@ export function Video({ lessonSlug }: VideoProps) {
         <div className="flex-1">
             <div className="bg-black flex justify-center">
                 <div className="bg-gray-600 w-full max-w-[1100px] max-h-[70vh] aspect-video overflow-clip">
-                    <Player>
-                        <Youtube videoId={videoId} />
-                        <DefaultUi />
-                    </Player>
+                    <ReactPlayer controls className="!w-full !h-full" src={`https://www.youtube.com/watch?v=${videoId}`} />
                 </div>
             </div>
 
