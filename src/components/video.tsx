@@ -40,7 +40,7 @@ export function Video({ lessonSlug }: VideoProps) {
             </div>
 
             <div className="p-8 max-w-[1100px] mx-auto">
-                <div className="flex items-start gap-16">
+                <div className="flex items-start gap-16 max-lg:flex-col">
                     <div className="flex-1 flex flex-col">
                         <h1 className="text-2xl font-bold">{title}</h1>
                         <p className="text-gray-200 mt-4 block leading-relaxed">{description}</p>
@@ -54,7 +54,7 @@ export function Video({ lessonSlug }: VideoProps) {
                             </div>
                         }
                     </div>
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-4 max-lg:mx-auto">
                         <a className="text-white hover:bg-green-700 transition-colors justify-center rounded px-4 py-3 flex items-center gap-2 border border-solid border-transparent bg-green-500" href="https://discord.com" target="_blank">
                             <DiscordLogoIcon size={24} />Comunidade do Discord
                         </a>
@@ -63,20 +63,20 @@ export function Video({ lessonSlug }: VideoProps) {
                         </a>
                     </div>
                 </div>
-                <div className="gap-8 mt-20 grid grid-cols-2">
+                <div className="gap-8 mt-20 grid grid-cols-2 max-lg:grid-cols-1">
                     <a className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors" href="https://rseat.in/ignitelabreactjs">
                         <div className="bg-green-700 h-full p-6 flex items-center"><FileArrowDownIcon size={40} /></div>
                         <div className="py-6 leading-relaxed">
-                            <strong className="text-2xl">Material complementar</strong>
-                            <p className="text-gray-300">Acesse este material para fazer o curso corretamente</p>
+                            <strong className="text-2xl max-lg:text-xl">Material complementar</strong>
+                            <p className="text-gray-300 max-lg:text-sm">Acesse este material para fazer o curso corretamente</p>
                         </div>
                         <div className="h-full p-6 flex items-center"><CaretRightIcon size={24} /></div>
                     </a>
                     <a className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors" href="https://rseat.in/ignitelabreactjs">
                         <div className="bg-green-700 h-full p-6 flex items-center"><FileArrowDownIcon size={40} /></div>
                         <div className="py-6 leading-relaxed">
-                            <strong className="text-2xl">Wallpappers exclusivos</strong>
-                            <p className="text-gray-300">Baixe wallpapers exclusivos do Ignite Lab e personalize a sua máquina</p>
+                            <strong className="text-2xl max-lg:text-xl">Wallpappers exclusivos</strong>
+                            <p className="text-gray-300 max-lg:text-sm">Baixe wallpapers exclusivos do Ignite Lab e personalize a sua máquina</p>
                         </div>
                         <div className="h-full p-6 flex items-center"><CaretRightIcon size={24} /></div>
                     </a>

@@ -8,9 +8,10 @@ interface LessonProps {
     slug: string
     availableAt: Date
     type: 'live' | 'class'
+    onSelectLesson: VoidFunction
 }
 
-export function Lesson({ availableAt, slug, title, type }: LessonProps) {
+export function Lesson({ availableAt, slug, title, type, onSelectLesson }: LessonProps) {
     const { slug: paramSlug } = useParams<{ slug: string }>()
 
     const available = isPast(availableAt)
@@ -18,7 +19,7 @@ export function Lesson({ availableAt, slug, title, type }: LessonProps) {
     const active = slug === paramSlug
 
     return (
-        <Link to={`/event/lesson/${slug}`} className="group">
+        <Link to={`/event/lesson/${slug}`} className="group" onClick={() => onSelectLesson()}>
             <span className="text-gray-300">{dateFormatted}</span>
             <div className={`p-4 rounded relative border border-solid border-gray-500 mt-2 block group-hover:border-green-500 ${active ? 'bg-green-500 after:size-4 after:top-1/2 after:translate-y-[-50%] after:bg-green-500 after:left-[-6px] after:rotate-45 after:absolute after:content-normal border-green-700' : ''}`}>
                 <header className="flex items-center justify-between">
